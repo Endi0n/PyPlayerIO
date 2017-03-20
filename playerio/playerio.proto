@@ -1,0 +1,83 @@
+// PlayerIO Protocol Buffers
+// protoc --python_out=./ playerio.proto
+syntax = "proto3";
+
+
+message SimpleConnectRequest {
+    string game_id = 1;
+    string username_or_email = 2;
+    string password = 3;
+    repeated string player_insight_segments = 4;
+    string client_api = 5;
+    map<string, string> client_info = 6;
+}
+
+message PlayerInsightState {
+    int32 players_online = 1;
+    map<string, string> segments = 2;
+}
+
+message SimpleConnectOutput {
+    string token = 1;
+    string user_id = 2;
+    bool show_branding = 3;
+    string game_fs_redirect_map = 4;
+    string partner_id = 5;
+    PlayerInsightState player_insight_state = 6;
+}
+
+message SimpleConnectError {
+    int32 error_code = 1;
+    string message = 2;
+}
+
+
+message ListRoomsRequest {
+    string room_type = 1;
+    map<string, string> search_criteria = 2;
+    int32 limit = 3;
+    int32 offset = 4;
+    bool only_dev_rooms = 5;
+}
+
+message RoomInfo {
+    string id = 1;
+    string type = 2;
+    int32 online_users = 3;
+    map<string, string> data = 4;
+}
+
+message ListRoomsOutput {
+    repeated RoomInfo rooms = 1;
+}
+
+message ListRoomsError {
+    int32 error_code = 1;
+    string message = 2;
+}
+
+
+message CreateJoinRoomRequest {
+    string room_id = 1;
+    string room_type = 2;
+    bool visible = 3;
+    map<string, string> room_data = 4;
+    map<string, string> join_data = 5;
+    bool is_dev_room = 6;
+}
+
+message ServerEndpoint {
+    string address = 1;
+    int32 port = 2;
+}
+
+message CreateJoinRoomOutput {
+    string room_id = 1;
+    string join_key = 2;
+    repeated ServerEndpoint endpoints = 3;
+}
+
+message CreateJoinRoomError {
+    int32 error_code = 1;
+    string message = 2;
+}
