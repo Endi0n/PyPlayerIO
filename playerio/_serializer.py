@@ -18,7 +18,7 @@ class Serializer:
         'unsigned_long': 0x3C,
         'short_byte_array': 0x40,
         'unsigned_short_int': 0x80,
-        'short_string': 0xC0,
+        'short_string': 0xC0
     }
 
     def __init__(self):

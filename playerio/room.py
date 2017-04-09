@@ -1,18 +1,13 @@
 import socket
-from threading import Thread
-from .serializer import Serializer
-from .deserializer import Deserializer
 from .message import Message
+from ._serializer import Serializer
+from ._deserializer import Deserializer
 
 
 class Room:
 
-    def __init__(self, client, room_info):
-        self.__client = client
-        self.__info = room_info
-
+    def __init__(self, room_info):
         self.__event_handlers = {}
-        self.__disconnect_handlers = []
 
         endpoint = [x for x in room_info.endpoints if x.port == 8184][0]
 
@@ -22,29 +17,20 @@ class Room:
         self.__socket.send('\0'.encode())
         self.send('join', room_info.join_key)
 
-        self.__connected = True
-
-        self.__deserializer = Deserializer()
-        self.__deserializer.message_handler = self.__broadcast_message
-
-        self.__thread = Thread(target=self.__read_socket_data)
-        self.__thread.start()
+        self.__deserializer = Deserializer(self.__socket, self.__broadcast_message)
 
     @property
     def connected(self):
-        return self.__connected
+        return self.__deserializer.connected
 
-    def send(self, message_type, *args):
-        self.send_message(Message(message_type, *args))
+    def disconnect(self):
+        self.__deserializer.disconnect()
 
-    def send_message(self, message):
-        self.__socket.send(Serializer.serialize_message(message))
+    def send(self, message, *args):
+        self.__socket.send(Serializer.serialize_message(
+            message if type(message) == Message else Message(message, *args)))
 
-    def __read_socket_data(self):
-        while self.__connected:
-            self.__deserializer.queue(self.__socket.recv(4096))
-
-    def add_event_handler(self, message_type):
+    def add_handler(self, message_type):
         def event_handler(func):
             if message_type not in self.__event_handlers:
                 self.__event_handlers[message_type] = []
@@ -52,6 +38,8 @@ class Room:
         return event_handler
 
     def __broadcast_message(self, message):
+        if message.type == 'playerio.joinresult' and message[0]:
+            self.__broadcast_message(Message('playerio.connect'))
         if message.type in self.__event_handlers:
             message_type_handlers = self.__event_handlers[message.type]
             for handler in message_type_handlers:

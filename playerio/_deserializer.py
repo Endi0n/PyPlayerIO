@@ -1,7 +1,8 @@
-from io import BytesIO
 import struct
+from io import BytesIO
+from threading import Thread
 from .message import Message
-from .serializer import Serializer
+from ._serializer import Serializer
 
 
 class Deserializer:
@@ -12,8 +13,12 @@ class Deserializer:
         'data': 2
     }
 
-    def __init__(self):
-        self.message_handler = None
+    __PATTERNS = sorted(Serializer.PATTERNS.values(), reverse=True)
+
+    def __init__(self, socket, message_handler):
+        self.__socket = socket
+        self.__message_handler = message_handler
+
         self.__message = None
         self.__buffer = BytesIO()
         self.__state = self.__STATE['init']
@@ -22,14 +27,31 @@ class Deserializer:
         self.__value_length = None
         self.__message_length = None
 
-    def queue(self, data):
-        for byte in data:
-            self.__parse(byte)
+        self.__connected = True
+        self.__thread = Thread(target=self.__read_socket_data)
+        self.__thread.start()
+
+    @property
+    def connected(self):
+        return self.__connected
+
+    def disconnect(self):
+        self.__connected = False
+
+    def __read_socket_data(self):
+        while self.__connected:
+            data = self.__socket.recv(4096)
+            if data == b'':
+                self.__connected = False
+                self.__message_handler(Message('playerio.disconnect'))
+                break
+            for byte in data:
+                self.__parse(byte)
 
     def __parse(self, byte):
         if self.__state == self.__STATE['init']:
             self.__value_type = None
-            for pattern in sorted(Serializer.PATTERNS.values(), reverse=True):
+            for pattern in self.__PATTERNS:
                 if byte & pattern == pattern:
                     self.__value_type = pattern
                     break
@@ -135,9 +157,8 @@ class Deserializer:
             self.__message.extend(value)
 
         if message_done:
-            print(self.__message)
-            if self.message_handler is not None:
-                self.message_handler(self.__message)
+            if self.__message_handler is not None:
+                self.__message_handler(self.__message)
             self.__message = None
             self.__message_length = None
 

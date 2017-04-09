@@ -27,7 +27,7 @@ message SimpleConnectOutput {
 }
 
 message SimpleConnectError {
-    int32 error_code = 1;
+    int32 code = 1;
     string message = 2;
 }
 
@@ -52,7 +52,7 @@ message ListRoomsOutput {
 }
 
 message ListRoomsError {
-    int32 error_code = 1;
+    int32 code = 1;
     string message = 2;
 }
 
@@ -78,6 +78,6 @@ message CreateJoinRoomOutput {
 }
 
 message CreateJoinRoomError {
-    int32 error_code = 1;
+    int32 code = 1;
     string message = 2;
 }

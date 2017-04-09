@@ -1,6 +1,6 @@
-from playerio.sdk import *
+from playerio import *
 
-client = Client('everybody-edits-su9rn58o40itdbnw69plyw', '<snip>', '<snip>')
+client = Client('everybody-edits-su9rn58o40itdbnw69plyw', 'guest', 'guest')
 
 players_online = 0
 
@@ -10,19 +10,28 @@ for room in client.list_rooms('Everybodyedits220'):
 
 print('Total: {} users\n'.format(players_online))
 
-room = client.create_join_room('<snip>', 'Everybodyedits220', True)
+room = client.create_join_room('PWL17t1R6bbUI', 'Everybodyedits220', True)
 
 
-@room.add_event_handler('init')
+@room.add_handler('playerio.connect')
+def on_disconnect(message):
+    print('Connected :)')
+
+
+@room.add_handler('init')
 def on_init(message):
     room.send('init2')
 
 
-@room.add_event_handler('add')
+@room.add_handler('add')
 def on_add(message):
     import time
     time.sleep(1)
     room.send('say', 'Hi {}!'.format(message[1].title()))
 
+
+@room.add_handler('playerio.disconnect')
+def on_disconnect(message):
+    print('Disconnected :(')
 
 room.send('init')
