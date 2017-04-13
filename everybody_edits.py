@@ -11,27 +11,27 @@ for room in client.list_rooms('Everybodyedits220'):
 print('Total: {} users\n'.format(players_online))
 
 room = client.create_join_room('PWL17t1R6bbUI', 'Everybodyedits220', True)
+print('Connected :)')
+room.send('init')
 
 
-@room.add_handler('playerio.connect')
-def on_disconnect(message):
-    print('Connected :)')
+@EventHandler.add()
+def on_message(room, message):
+    print(message)
 
 
-@room.add_handler('init')
-def on_init(message):
+@EventHandler.add('init')
+def on_init(room, message):
     room.send('init2')
 
 
-@room.add_handler('add')
-def on_add(message):
+@EventHandler.add('add')
+def on_add(room, message):
     import time
     time.sleep(1)
     room.send('say', 'Hi {}!'.format(message[1].title()))
 
 
-@room.add_handler('playerio.disconnect')
-def on_disconnect(message):
+@EventHandler.add('playerio.disconnect')
+def on_disconnect(room, message):
     print('Disconnected :(')
-
-room.send('init')

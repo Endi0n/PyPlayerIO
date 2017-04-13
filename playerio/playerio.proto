@@ -72,7 +72,7 @@ message ServerEndpoint {
 }
 
 message CreateJoinRoomOutput {
-    string room_id = 1;
+    string id = 1;
     string join_key = 2;
     repeated ServerEndpoint endpoints = 3;
 }

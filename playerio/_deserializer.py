@@ -19,12 +19,12 @@ class Deserializer:
         self.__socket = socket
         self.__message_handler = message_handler
 
-        self.__message = None
         self.__buffer = BytesIO()
         self.__state = self.__STATE['init']
-
         self.__value_type = None
         self.__value_length = None
+
+        self.__message = None
         self.__message_length = None
 
         self.__connected = True
@@ -140,12 +140,16 @@ class Deserializer:
         return result
 
     def __add_value(self, value):
-        message_done = False
+        self.__state = self.__STATE['init']
+        self.__clear_buffer()
 
         if self.__message_length is None:
             self.__message_length = value
+            return
 
-        elif self.__message is None:
+        message_done = False
+
+        if self.__message is None:
             self.__message = Message(value)
             if self.__message_length == 0:
                 message_done = True
@@ -157,13 +161,9 @@ class Deserializer:
             self.__message.extend(value)
 
         if message_done:
-            if self.__message_handler is not None:
-                self.__message_handler(self.__message)
+            self.__message_handler(self.__message)
             self.__message = None
             self.__message_length = None
-
-        self.__state = self.__STATE['init']
-        self.__clear_buffer()
 
     def __clear_buffer(self):
         if self.__buffer.tell() > 0:

@@ -1,4 +1,4 @@
-# Python---PlayerIO
+# PyPlayerIO
 ![alt tag](https://puu.sh/uRYjD/e2c412ce60.png)
 
 A Python PlayerIOClient Implementation
