@@ -1,13 +1,14 @@
 from .room import Room
+from .bigdb import BigDB
 from ._http_channel import HTTPChannel
-from ._protocol_pb2 import *
-
+from .playerio_pb2 import *
 
 class Client:
 
     def __init__(self, game_id, username_or_email, password):
         # Connecting
         self.__channel = HTTPChannel()
+        self.BigDB = BigDB(self.__channel)
 
         # Initializing connection parameters
         input_message = SimpleConnectRequest()

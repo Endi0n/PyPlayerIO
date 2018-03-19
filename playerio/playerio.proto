@@ -56,7 +56,6 @@ message ListRoomsError {
     string message = 2;
 }
 
-
 message CreateJoinRoomRequest {
     string room_id = 1;
     string room_type = 2;
@@ -80,4 +79,66 @@ message CreateJoinRoomOutput {
 message CreateJoinRoomError {
     int32 code = 1;
     string message = 2;
+}
+
+message ObjectProperty {
+    string name = 1;
+    ValueObject value = 2;
+}
+
+message ArrayProperty {
+    int32 index = 1;
+    ValueObject value = 2;
+}
+
+message ValueObject {
+    int32 valueType = 1;
+    string string = 2;
+    int32 int32 = 3;
+    uint32 uInt = 4;
+    int64 long = 5;
+    bool bool = 6;
+    float float = 7;
+    double double = 8;
+    bytes byteArray = 9;
+    int64 dateTime = 10;
+    repeated ArrayProperty arrayProperties = 11;
+    repeated ObjectProperty objectProperties = 12;
+}
+
+message BigDBObject {
+    string key = 1;
+    string version = 2;
+    repeated ObjectProperty properties = 3;
+    uint32 creator = 4;
+}
+
+message BigDBObjectId {
+    string table = 1;
+    repeated string keys = 2;
+}
+
+message LoadMyPlayerObjectArgs {
+}
+
+message LoadMyPlayerObjectError {
+    int32 errorCode = 1;
+    string message = 2;
+}
+
+message LoadMyPlayerObjectOutput {
+    BigDBObject playerObject = 1;
+}
+
+message LoadObjectsArgs {
+    repeated BigDBObjectId objectIds = 1;
+}
+
+message LoadObjectsError {
+    int32 errorCode = 1;
+    string message = 2;
+}
+
+message LoadObjectsOutput {
+    repeated BigDBObject objects = 1;
 }

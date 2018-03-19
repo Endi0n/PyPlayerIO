@@ -1,28 +1,32 @@
 from playerio import *
 
-client = Client('everybody-edits-su9rn58o40itdbnw69plyw', 'guest', 'guest')
+if __name__ == "__main__":
+    client = Client('everybody-edits-su9rn58o40itdbnw69plyw', 'ywambolt@hotmail.com', 'barbie')
 
-players_online = 0
+    config = client.BigDB.load("config", ["config"])[0]
+    version = next(p.value.int32 for p in config.properties if p.name == 'version')
 
-for room in client.list_rooms('Everybodyedits228'):
-    print('{} - {} players online'.format(room.data['name'], room.players_online))
-    players_online += room.players_online
+    players_online = 0
 
-print('Total: {} players\n'.format(players_online))
+    for room in client.list_rooms(f'Everybodyedits{version}'):
+        print('{} - {} players online'.format(room.data['name'], room.online_users))
+        players_online += room.online_users
+    print('Total: {} users\n'.format(players_online))
 
-room = client.create_join_room('PWL17t1R6bbUI', 'Everybodyedits220', True)
-print('Connected :)')
-room.send('init')
-
+    room = client.create_join_room('PWKpWR8Pb7cEI', f'Everybodyedits{version}', True)
+    room.send('init')
 
 @EventHandler.add()
 def on_message(room, message):
     print(message)
 
-
 @EventHandler.add('init')
 def on_init(room, message):
     room.send('init2')
+
+@EventHandler.add("say")
+def on_say(room, message):
+    print(message)
 
 
 @EventHandler.add('add')
