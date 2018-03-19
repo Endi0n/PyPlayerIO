@@ -43,7 +43,7 @@ message ListRoomsRequest {
 message RoomInfo {
     string id = 1;
     string type = 2;
-    int32 online_users = 3;
+    int32 players_online = 3;
     map<string, string> data = 4;
 }
 

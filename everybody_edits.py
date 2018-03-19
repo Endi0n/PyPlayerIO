@@ -4,11 +4,11 @@ client = Client('everybody-edits-su9rn58o40itdbnw69plyw', 'guest', 'guest')
 
 players_online = 0
 
-for room in client.list_rooms('Everybodyedits220'):
-    print('{} - {} players online'.format(room.data['name'], room.online_users))
-    players_online += room.online_users
+for room in client.list_rooms('Everybodyedits228'):
+    print('{} - {} players online'.format(room.data['name'], room.players_online))
+    players_online += room.players_online
 
-print('Total: {} users\n'.format(players_online))
+print('Total: {} players\n'.format(players_online))
 
 room = client.create_join_room('PWL17t1R6bbUI', 'Everybodyedits220', True)
 print('Connected :)')

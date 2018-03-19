@@ -4,9 +4,9 @@
 A Python PlayerIOClient Implementation
 
 
-Based on [@atillabyte](https://github.com/atillabyte)'s project
+Based on [OpenPlayerIO Client](https://github.com/OpenPlayerIO/PlayerIOClient)
 
-This work is under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License.
-https://creativecommons.org/licenses/by-nc-sa/4.0/
+This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+https://creativecommons.org/licenses/by-sa/4.0/
 
-![alt tag](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)
+![alt tag](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)

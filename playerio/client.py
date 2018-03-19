@@ -1,6 +1,6 @@
 from .room import Room
 from ._http_channel import HTTPChannel
-from ._protocol import *
+from ._protocol_pb2 import *
 
 
 class Client:
