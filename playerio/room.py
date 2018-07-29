@@ -2,7 +2,7 @@ import socket
 from .message import Message
 from ._serializer import Serializer
 from ._deserializer import Deserializer
-from ._event_handler import EventHandler
+from .event_handler import EventHandler
 
 
 class Room:

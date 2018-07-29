@@ -1,41 +1,45 @@
+# Import the library
 from playerio import *
 
-if __name__ == "__main__":
-    client = Client('everybody-edits-su9rn58o40itdbnw69plyw', 'ywambolt@hotmail.com', 'barbie')
+# Connect to the game
+client = Client('everybody-edits-su9rn58o40itdbnw69plyw', 'guest', 'guest')
 
-    config = client.BigDB.load("config", ["config"])[0]
-    version = next(p.value.int32 for p in config.properties if p.name == 'version')
+# Get the game version from BigDB
+version = client.bigdb_load('config', 'config')['version']
 
-    players_online = 0
+# Count the number of players online
+players_online = 0
 
-    for room in client.list_rooms(f'Everybodyedits{version}'):
-        print('{} - {} players online'.format(room.data['name'], room.online_users))
-        players_online += room.online_users
-    print('Total: {} users\n'.format(players_online))
+for room in client.list_rooms(f'Everybodyedits{version}'):
+    print('{} - {} players online'.format(room.data['name'], room.players_online))
+    players_online += room.players_online
 
-    room = client.create_join_room('PWKpWR8Pb7cEI', f'Everybodyedits{version}', True)
-    room.send('init')
+print('Total: {} users\n'.format(players_online))
 
+# Join a room
+room = client.create_join_room('PWL17t1R6bbUI', f'Everybodyedits{version}', True)
+
+# Send a message
+room.send('init')
+
+# Print all the incoming events from the room
 @EventHandler.add()
 def on_message(room, message):
     print(message)
 
+# Handle the init event
 @EventHandler.add('init')
 def on_init(room, message):
     room.send('init2')
 
-@EventHandler.add("say")
-def on_say(room, message):
-    print(message)
-
-
+# Handle a join event
 @EventHandler.add('add')
 def on_add(room, message):
     import time
     time.sleep(1)
     room.send('say', 'Hi {}!'.format(message[1].title()))
 
-
+# Handle disconnection
 @EventHandler.add('playerio.disconnect')
 def on_disconnect(room, message):
     print('Disconnected :(')

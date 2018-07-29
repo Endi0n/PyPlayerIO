@@ -22,7 +22,7 @@ class Serializer:
     }
 
     def __init__(self):
-        raise NotImplementedError("Serializer is a static class!")
+        raise NotImplementedError('Serializer is a static class!')
 
     @staticmethod
     def serialize_message(message):

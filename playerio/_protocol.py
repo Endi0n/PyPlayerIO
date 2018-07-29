@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='playerio.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x0eplayerio.proto\"\xf8\x01\n\x14SimpleConnectRequest\x12\x0f\n\x07game_id\x18\x01 \x01(\t\x12\x19\n\x11username_or_email\x18\x02 \x01(\t\x12\x10\n\x08password\x18\x03 \x01(\t\x12\x1f\n\x17player_insight_segments\x18\x04 \x03(\t\x12\x12\n\nclient_api\x18\x05 \x01(\t\x12:\n\x0b\x63lient_info\x18\x06 \x03(\x0b\x32%.SimpleConnectRequest.ClientInfoEntry\x1a\x31\n\x0f\x43lientInfoEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x92\x01\n\x12PlayerInsightState\x12\x16\n\x0eplayers_online\x18\x01 \x01(\x05\x12\x33\n\x08segments\x18\x02 \x03(\x0b\x32!.PlayerInsightState.SegmentsEntry\x1a/\n\rSegmentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xb1\x01\n\x13SimpleConnectOutput\x12\r\n\x05token\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x15\n\rshow_branding\x18\x03 \x01(\x08\x12\x1c\n\x14game_fs_redirect_map\x18\x04 \x01(\t\x12\x12\n\npartner_id\x18\x05 \x01(\t\x12\x31\n\x14player_insight_state\x18\x06 \x01(\x0b\x32\x13.PlayerInsightState\"3\n\x12SimpleConnectError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\"\xd3\x01\n\x10ListRoomsRequest\x12\x11\n\troom_type\x18\x01 \x01(\t\x12>\n\x0fsearch_criteria\x18\x02 \x03(\x0b\x32%.ListRoomsRequest.SearchCriteriaEntry\x12\r\n\x05limit\x18\x03 \x01(\x05\x12\x0e\n\x06offset\x18\x04 \x01(\x05\x12\x16\n\x0eonly_dev_rooms\x18\x05 \x01(\x08\x1a\x35\n\x13SearchCriteriaEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x8a\x01\n\x08RoomInfo\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x14\n\x0conline_users\x18\x03 \x01(\x05\x12!\n\x04\x64\x61ta\x18\x04 \x03(\x0b\x32\x13.RoomInfo.DataEntry\x1a+\n\tDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"+\n\x0fListRoomsOutput\x12\x18\n\x05rooms\x18\x01 \x03(\x0b\x32\t.RoomInfo\"/\n\x0eListRoomsError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\"\xb5\x02\n\x15\x43reateJoinRoomRequest\x12\x0f\n\x07room_id\x18\x01 \x01(\t\x12\x11\n\troom_type\x18\x02 \x01(\t\x12\x0f\n\x07visible\x18\x03 \x01(\x08\x12\x37\n\troom_data\x18\x04 \x03(\x0b\x32$.CreateJoinRoomRequest.RoomDataEntry\x12\x37\n\tjoin_data\x18\x05 \x03(\x0b\x32$.CreateJoinRoomRequest.JoinDataEntry\x12\x13\n\x0bis_dev_room\x18\x06 \x01(\x08\x1a/\n\rRoomDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a/\n\rJoinDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"/\n\x0eServerEndpoint\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0c\n\x04port\x18\x02 \x01(\x05\"X\n\x14\x43reateJoinRoomOutput\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08join_key\x18\x02 \x01(\t\x12\"\n\tendpoints\x18\x03 \x03(\x0b\x32\x0f.ServerEndpoint\"4\n\x13\x43reateJoinRoomError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\";\n\x0eObjectProperty\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1b\n\x05value\x18\x02 \x01(\x0b\x32\x0c.ValueObject\";\n\rArrayProperty\x12\r\n\x05index\x18\x01 \x01(\x05\x12\x1b\n\x05value\x18\x02 \x01(\x0b\x32\x0c.ValueObject\"\x81\x02\n\x0bValueObject\x12\x11\n\tvalueType\x18\x01 \x01(\x05\x12\x0e\n\x06string\x18\x02 \x01(\t\x12\r\n\x05int32\x18\x03 \x01(\x05\x12\x0c\n\x04uInt\x18\x04 \x01(\r\x12\x0c\n\x04long\x18\x05 \x01(\x03\x12\x0c\n\x04\x62ool\x18\x06 \x01(\x08\x12\r\n\x05\x66loat\x18\x07 \x01(\x02\x12\x0e\n\x06\x64ouble\x18\x08 \x01(\x01\x12\x11\n\tbyteArray\x18\t \x01(\x0c\x12\x10\n\x08\x64\x61teTime\x18\n \x01(\x03\x12\'\n\x0f\x61rrayProperties\x18\x0b \x03(\x0b\x32\x0e.ArrayProperty\x12)\n\x10objectProperties\x18\x0c \x03(\x0b\x32\x0f.ObjectProperty\"a\n\x0b\x42igDBObject\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12#\n\nproperties\x18\x03 \x03(\x0b\x32\x0f.ObjectProperty\x12\x0f\n\x07\x63reator\x18\x04 \x01(\r\",\n\rBigDBObjectId\x12\r\n\x05table\x18\x01 \x01(\t\x12\x0c\n\x04keys\x18\x02 \x03(\t\"\x18\n\x16LoadMyPlayerObjectArgs\"=\n\x17LoadMyPlayerObjectError\x12\x11\n\terrorCode\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\">\n\x18LoadMyPlayerObjectOutput\x12\"\n\x0cplayerObject\x18\x01 \x01(\x0b\x32\x0c.BigDBObject\"4\n\x0fLoadObjectsArgs\x12!\n\tobjectIds\x18\x01 \x03(\x0b\x32\x0e.BigDBObjectId\"6\n\x10LoadObjectsError\x12\x11\n\terrorCode\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\"2\n\x11LoadObjectsOutput\x12\x1d\n\x07objects\x18\x01 \x03(\x0b\x32\x0c.BigDBObjectb\x06proto3')
+  serialized_pb=_b('\n\x0eplayerio.proto\"\xf8\x01\n\x14SimpleConnectRequest\x12\x0f\n\x07game_id\x18\x01 \x01(\t\x12\x19\n\x11username_or_email\x18\x02 \x01(\t\x12\x10\n\x08password\x18\x03 \x01(\t\x12\x1f\n\x17player_insight_segments\x18\x04 \x03(\t\x12\x12\n\nclient_api\x18\x05 \x01(\t\x12:\n\x0b\x63lient_info\x18\x06 \x03(\x0b\x32%.SimpleConnectRequest.ClientInfoEntry\x1a\x31\n\x0f\x43lientInfoEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xb1\x01\n\x13SimpleConnectOutput\x12\r\n\x05token\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x15\n\rshow_branding\x18\x03 \x01(\x08\x12\x1c\n\x14game_fs_redirect_map\x18\x04 \x01(\t\x12\x12\n\npartner_id\x18\x05 \x01(\t\x12\x31\n\x14player_insight_state\x18\x06 \x01(\x0b\x32\x13.PlayerInsightState\"3\n\x12SimpleConnectError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\"\x92\x01\n\x12PlayerInsightState\x12\x16\n\x0eplayers_online\x18\x01 \x01(\x05\x12\x33\n\x08segments\x18\x02 \x03(\x0b\x32!.PlayerInsightState.SegmentsEntry\x1a/\n\rSegmentsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd3\x01\n\x10ListRoomsRequest\x12\x11\n\troom_type\x18\x01 \x01(\t\x12>\n\x0fsearch_criteria\x18\x02 \x03(\x0b\x32%.ListRoomsRequest.SearchCriteriaEntry\x12\r\n\x05limit\x18\x03 \x01(\x05\x12\x0e\n\x06offset\x18\x04 \x01(\x05\x12\x16\n\x0eonly_dev_rooms\x18\x05 \x01(\x08\x1a\x35\n\x13SearchCriteriaEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"+\n\x0fListRoomsOutput\x12\x18\n\x05rooms\x18\x01 \x03(\x0b\x32\t.RoomInfo\"/\n\x0eListRoomsError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\"\x8c\x01\n\x08RoomInfo\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x16\n\x0eplayers_online\x18\x03 \x01(\x05\x12!\n\x04\x64\x61ta\x18\x04 \x03(\x0b\x32\x13.RoomInfo.DataEntry\x1a+\n\tDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xb5\x02\n\x15\x43reateJoinRoomRequest\x12\x0f\n\x07room_id\x18\x01 \x01(\t\x12\x11\n\troom_type\x18\x02 \x01(\t\x12\x0f\n\x07visible\x18\x03 \x01(\x08\x12\x37\n\troom_data\x18\x04 \x03(\x0b\x32$.CreateJoinRoomRequest.RoomDataEntry\x12\x37\n\tjoin_data\x18\x05 \x03(\x0b\x32$.CreateJoinRoomRequest.JoinDataEntry\x12\x13\n\x0bis_dev_room\x18\x06 \x01(\x08\x1a/\n\rRoomDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a/\n\rJoinDataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"X\n\x14\x43reateJoinRoomOutput\x12\n\n\x02id\x18\x01 \x01(\t\x12\x10\n\x08join_key\x18\x02 \x01(\t\x12\"\n\tendpoints\x18\x03 \x03(\x0b\x32\x0f.ServerEndpoint\"4\n\x13\x43reateJoinRoomError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\"/\n\x0eServerEndpoint\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0c\n\x04port\x18\x02 \x01(\x05\"\x18\n\x16LoadMyPlayerObjectArgs\"E\n\x18LoadMyPlayerObjectOutput\x12)\n\rplayer_object\x18\x01 \x01(\x0b\x32\x12.BigDBObjectOutput\"8\n\x17LoadMyPlayerObjectError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\"c\n\x11\x42igDBObjectOutput\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x1f\n\x05items\x18\x03 \x03(\x0b\x32\x10.BigDBObjectItem\x12\x0f\n\x07\x63reator\x18\x04 \x01(\r\"A\n\x0f\x42igDBObjectItem\x12\x0c\n\x04name\x18\x01 \x01(\t\x12 \n\x05value\x18\x02 \x01(\x0b\x32\x11.BigDBObjectValue\"\xef\x01\n\x10\x42igDBObjectValue\x12\x0c\n\x04type\x18\x01 \x01(\x05\x12\x0e\n\x06string\x18\x02 \x01(\t\x12\x0b\n\x03int\x18\x03 \x01(\x05\x12\x0c\n\x04uint\x18\x04 \x01(\r\x12\x0c\n\x04long\x18\x05 \x01(\x03\x12\x0c\n\x04\x62ool\x18\x06 \x01(\x08\x12\r\n\x05\x66loat\x18\x07 \x01(\x02\x12\x0e\n\x06\x64ouble\x18\x08 \x01(\x01\x12\x11\n\tbytearray\x18\t \x01(\x0c\x12\x10\n\x08\x64\x61tetime\x18\n \x01(\x03\x12!\n\x05\x61rray\x18\x0b \x03(\x0b\x32\x12.BigDBArrayElement\x12\x1f\n\x05items\x18\x0c \x03(\x0b\x32\x10.BigDBObjectItem\"D\n\x11\x42igDBArrayElement\x12\r\n\x05index\x18\x01 \x01(\x05\x12 \n\x05value\x18\x02 \x01(\x0b\x32\x11.BigDBObjectValue\"6\n\x10\x42igDBLoadRequest\x12\"\n\nobject_ids\x18\x01 \x03(\x0b\x32\x0e.BigDBObjectId\"6\n\x0f\x42igDBLoadOutput\x12#\n\x07objects\x18\x01 \x03(\x0b\x32\x12.BigDBObjectOutput\"/\n\x0e\x42igDBLoadError\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0f\n\x07message\x18\x02 \x01(\t\",\n\rBigDBObjectId\x12\r\n\x05table\x18\x01 \x01(\t\x12\x0c\n\x04keys\x18\x02 \x03(\tb\x06proto3')
 )
 
 
@@ -128,81 +128,6 @@ _SIMPLECONNECTREQUEST = _descriptor.Descriptor(
 )
 
 
-_PLAYERINSIGHTSTATE_SEGMENTSENTRY = _descriptor.Descriptor(
-  name='SegmentsEntry',
-  full_name='PlayerInsightState.SegmentsEntry',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='PlayerInsightState.SegmentsEntry.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='PlayerInsightState.SegmentsEntry.value', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=_descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001')),
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=369,
-  serialized_end=416,
-)
-
-_PLAYERINSIGHTSTATE = _descriptor.Descriptor(
-  name='PlayerInsightState',
-  full_name='PlayerInsightState',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='players_online', full_name='PlayerInsightState.players_online', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='segments', full_name='PlayerInsightState.segments', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[_PLAYERINSIGHTSTATE_SEGMENTSENTRY, ],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=270,
-  serialized_end=416,
-)
-
-
 _SIMPLECONNECTOUTPUT = _descriptor.Descriptor(
   name='SimpleConnectOutput',
   full_name='SimpleConnectOutput',
@@ -264,8 +189,8 @@ _SIMPLECONNECTOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=419,
-  serialized_end=596,
+  serialized_start=270,
+  serialized_end=447,
 )
 
 
@@ -302,7 +227,82 @@ _SIMPLECONNECTERROR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=598,
+  serialized_start=449,
+  serialized_end=500,
+)
+
+
+_PLAYERINSIGHTSTATE_SEGMENTSENTRY = _descriptor.Descriptor(
+  name='SegmentsEntry',
+  full_name='PlayerInsightState.SegmentsEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='PlayerInsightState.SegmentsEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='PlayerInsightState.SegmentsEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=_descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001')),
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=602,
+  serialized_end=649,
+)
+
+_PLAYERINSIGHTSTATE = _descriptor.Descriptor(
+  name='PlayerInsightState',
+  full_name='PlayerInsightState',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='players_online', full_name='PlayerInsightState.players_online', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='segments', full_name='PlayerInsightState.segments', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_PLAYERINSIGHTSTATE_SEGMENTSENTRY, ],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=503,
   serialized_end=649,
 )
 
@@ -403,95 +403,6 @@ _LISTROOMSREQUEST = _descriptor.Descriptor(
 )
 
 
-_ROOMINFO_DATAENTRY = _descriptor.Descriptor(
-  name='DataEntry',
-  full_name='RoomInfo.DataEntry',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='key', full_name='RoomInfo.DataEntry.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='value', full_name='RoomInfo.DataEntry.value', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=_descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001')),
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=961,
-  serialized_end=1004,
-)
-
-_ROOMINFO = _descriptor.Descriptor(
-  name='RoomInfo',
-  full_name='RoomInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='RoomInfo.id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='RoomInfo.type', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='online_users', full_name='RoomInfo.online_users', index=2,
-      number=3, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='data', full_name='RoomInfo.data', index=3,
-      number=4, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[_ROOMINFO_DATAENTRY, ],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=866,
-  serialized_end=1004,
-)
-
-
 _LISTROOMSOUTPUT = _descriptor.Descriptor(
   name='ListRoomsOutput',
   full_name='ListRoomsOutput',
@@ -518,8 +429,8 @@ _LISTROOMSOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1006,
-  serialized_end=1049,
+  serialized_start=865,
+  serialized_end=908,
 )
 
 
@@ -556,8 +467,97 @@ _LISTROOMSERROR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1051,
-  serialized_end=1098,
+  serialized_start=910,
+  serialized_end=957,
+)
+
+
+_ROOMINFO_DATAENTRY = _descriptor.Descriptor(
+  name='DataEntry',
+  full_name='RoomInfo.DataEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='RoomInfo.DataEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='RoomInfo.DataEntry.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=_descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001')),
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1057,
+  serialized_end=1100,
+)
+
+_ROOMINFO = _descriptor.Descriptor(
+  name='RoomInfo',
+  full_name='RoomInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='RoomInfo.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='RoomInfo.type', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='players_online', full_name='RoomInfo.players_online', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='data', full_name='RoomInfo.data', index=3,
+      number=4, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_ROOMINFO_DATAENTRY, ],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=960,
+  serialized_end=1100,
 )
 
 
@@ -594,8 +594,8 @@ _CREATEJOINROOMREQUEST_ROOMDATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1314,
-  serialized_end=1361,
+  serialized_start=1316,
+  serialized_end=1363,
 )
 
 _CREATEJOINROOMREQUEST_JOINDATAENTRY = _descriptor.Descriptor(
@@ -631,8 +631,8 @@ _CREATEJOINROOMREQUEST_JOINDATAENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1363,
-  serialized_end=1410,
+  serialized_start=1365,
+  serialized_end=1412,
 )
 
 _CREATEJOINROOMREQUEST = _descriptor.Descriptor(
@@ -696,46 +696,8 @@ _CREATEJOINROOMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1101,
-  serialized_end=1410,
-)
-
-
-_SERVERENDPOINT = _descriptor.Descriptor(
-  name='ServerEndpoint',
-  full_name='ServerEndpoint',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='address', full_name='ServerEndpoint.address', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='port', full_name='ServerEndpoint.port', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1412,
-  serialized_end=1459,
+  serialized_start=1103,
+  serialized_end=1412,
 )
 
 
@@ -779,8 +741,8 @@ _CREATEJOINROOMOUTPUT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1461,
-  serialized_end=1549,
+  serialized_start=1414,
+  serialized_end=1502,
 )
 
 
@@ -817,28 +779,83 @@ _CREATEJOINROOMERROR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1551,
-  serialized_end=1603,
+  serialized_start=1504,
+  serialized_end=1556,
 )
 
 
-_OBJECTPROPERTY = _descriptor.Descriptor(
-  name='ObjectProperty',
-  full_name='ObjectProperty',
+_SERVERENDPOINT = _descriptor.Descriptor(
+  name='ServerEndpoint',
+  full_name='ServerEndpoint',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='ObjectProperty.name', index=0,
+      name='address', full_name='ServerEndpoint.address', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='ObjectProperty.value', index=1,
-      number=2, type=11, cpp_type=10, label=1,
+      name='port', full_name='ServerEndpoint.port', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1558,
+  serialized_end=1605,
+)
+
+
+_LOADMYPLAYEROBJECTARGS = _descriptor.Descriptor(
+  name='LoadMyPlayerObjectArgs',
+  full_name='LoadMyPlayerObjectArgs',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1607,
+  serialized_end=1631,
+)
+
+
+_LOADMYPLAYEROBJECTOUTPUT = _descriptor.Descriptor(
+  name='LoadMyPlayerObjectOutput',
+  full_name='LoadMyPlayerObjectOutput',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='player_object', full_name='LoadMyPlayerObjectOutput.player_object', index=0,
+      number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -855,29 +872,29 @@ _OBJECTPROPERTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1605,
-  serialized_end=1664,
+  serialized_start=1633,
+  serialized_end=1702,
 )
 
 
-_ARRAYPROPERTY = _descriptor.Descriptor(
-  name='ArrayProperty',
-  full_name='ArrayProperty',
+_LOADMYPLAYEROBJECTERROR = _descriptor.Descriptor(
+  name='LoadMyPlayerObjectError',
+  full_name='LoadMyPlayerObjectError',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='index', full_name='ArrayProperty.index', index=0,
+      name='code', full_name='LoadMyPlayerObjectError.code', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='ArrayProperty.value', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='message', full_name='LoadMyPlayerObjectError.message', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
@@ -893,97 +910,187 @@ _ARRAYPROPERTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1666,
-  serialized_end=1725,
+  serialized_start=1704,
+  serialized_end=1760,
 )
 
 
-_VALUEOBJECT = _descriptor.Descriptor(
-  name='ValueObject',
-  full_name='ValueObject',
+_BIGDBOBJECTOUTPUT = _descriptor.Descriptor(
+  name='BigDBObjectOutput',
+  full_name='BigDBObjectOutput',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='valueType', full_name='ValueObject.valueType', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='key', full_name='BigDBObjectOutput.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='string', full_name='ValueObject.string', index=1,
+      name='version', full_name='BigDBObjectOutput.version', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='int32', full_name='ValueObject.int32', index=2,
+      name='items', full_name='BigDBObjectOutput.items', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='creator', full_name='BigDBObjectOutput.creator', index=3,
+      number=4, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1762,
+  serialized_end=1861,
+)
+
+
+_BIGDBOBJECTITEM = _descriptor.Descriptor(
+  name='BigDBObjectItem',
+  full_name='BigDBObjectItem',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='BigDBObjectItem.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='BigDBObjectItem.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1863,
+  serialized_end=1928,
+)
+
+
+_BIGDBOBJECTVALUE = _descriptor.Descriptor(
+  name='BigDBObjectValue',
+  full_name='BigDBObjectValue',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='BigDBObjectValue.type', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='string', full_name='BigDBObjectValue.string', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='int', full_name='BigDBObjectValue.int', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='uInt', full_name='ValueObject.uInt', index=3,
+      name='uint', full_name='BigDBObjectValue.uint', index=3,
       number=4, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='long', full_name='ValueObject.long', index=4,
+      name='long', full_name='BigDBObjectValue.long', index=4,
       number=5, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='bool', full_name='ValueObject.bool', index=5,
+      name='bool', full_name='BigDBObjectValue.bool', index=5,
       number=6, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='float', full_name='ValueObject.float', index=6,
+      name='float', full_name='BigDBObjectValue.float', index=6,
       number=7, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='double', full_name='ValueObject.double', index=7,
+      name='double', full_name='BigDBObjectValue.double', index=7,
       number=8, type=1, cpp_type=5, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='byteArray', full_name='ValueObject.byteArray', index=8,
+      name='bytearray', full_name='BigDBObjectValue.bytearray', index=8,
       number=9, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='dateTime', full_name='ValueObject.dateTime', index=9,
+      name='datetime', full_name='BigDBObjectValue.datetime', index=9,
       number=10, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='arrayProperties', full_name='ValueObject.arrayProperties', index=10,
+      name='array', full_name='BigDBObjectValue.array', index=10,
       number=11, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='objectProperties', full_name='ValueObject.objectProperties', index=11,
+      name='items', full_name='BigDBObjectValue.items', index=11,
       number=12, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -1001,43 +1108,29 @@ _VALUEOBJECT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1728,
-  serialized_end=1985,
+  serialized_start=1931,
+  serialized_end=2170,
 )
 
 
-_BIGDBOBJECT = _descriptor.Descriptor(
-  name='BigDBObject',
-  full_name='BigDBObject',
+_BIGDBARRAYELEMENT = _descriptor.Descriptor(
+  name='BigDBArrayElement',
+  full_name='BigDBArrayElement',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='key', full_name='BigDBObject.key', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='version', full_name='BigDBObject.version', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='properties', full_name='BigDBObject.properties', index=2,
-      number=3, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='creator', full_name='BigDBObject.creator', index=3,
-      number=4, type=13, cpp_type=3, label=1,
+      name='index', full_name='BigDBArrayElement.index', index=0,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='BigDBArrayElement.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
@@ -1053,8 +1146,108 @@ _BIGDBOBJECT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1987,
-  serialized_end=2084,
+  serialized_start=2172,
+  serialized_end=2240,
+)
+
+
+_BIGDBLOADREQUEST = _descriptor.Descriptor(
+  name='BigDBLoadRequest',
+  full_name='BigDBLoadRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='object_ids', full_name='BigDBLoadRequest.object_ids', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2242,
+  serialized_end=2296,
+)
+
+
+_BIGDBLOADOUTPUT = _descriptor.Descriptor(
+  name='BigDBLoadOutput',
+  full_name='BigDBLoadOutput',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='objects', full_name='BigDBLoadOutput.objects', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2298,
+  serialized_end=2352,
+)
+
+
+_BIGDBLOADERROR = _descriptor.Descriptor(
+  name='BigDBLoadError',
+  full_name='BigDBLoadError',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='code', full_name='BigDBLoadError.code', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='message', full_name='BigDBLoadError.message', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2354,
+  serialized_end=2401,
 )
 
 
@@ -1091,249 +1284,56 @@ _BIGDBOBJECTID = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2086,
-  serialized_end=2130,
-)
-
-
-_LOADMYPLAYEROBJECTARGS = _descriptor.Descriptor(
-  name='LoadMyPlayerObjectArgs',
-  full_name='LoadMyPlayerObjectArgs',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2132,
-  serialized_end=2156,
-)
-
-
-_LOADMYPLAYEROBJECTERROR = _descriptor.Descriptor(
-  name='LoadMyPlayerObjectError',
-  full_name='LoadMyPlayerObjectError',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='errorCode', full_name='LoadMyPlayerObjectError.errorCode', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='message', full_name='LoadMyPlayerObjectError.message', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2158,
-  serialized_end=2219,
-)
-
-
-_LOADMYPLAYEROBJECTOUTPUT = _descriptor.Descriptor(
-  name='LoadMyPlayerObjectOutput',
-  full_name='LoadMyPlayerObjectOutput',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='playerObject', full_name='LoadMyPlayerObjectOutput.playerObject', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2221,
-  serialized_end=2283,
-)
-
-
-_LOADOBJECTSARGS = _descriptor.Descriptor(
-  name='LoadObjectsArgs',
-  full_name='LoadObjectsArgs',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='objectIds', full_name='LoadObjectsArgs.objectIds', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2285,
-  serialized_end=2337,
-)
-
-
-_LOADOBJECTSERROR = _descriptor.Descriptor(
-  name='LoadObjectsError',
-  full_name='LoadObjectsError',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='errorCode', full_name='LoadObjectsError.errorCode', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='message', full_name='LoadObjectsError.message', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2339,
-  serialized_end=2393,
-)
-
-
-_LOADOBJECTSOUTPUT = _descriptor.Descriptor(
-  name='LoadObjectsOutput',
-  full_name='LoadObjectsOutput',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='objects', full_name='LoadObjectsOutput.objects', index=0,
-      number=1, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=2395,
-  serialized_end=2445,
+  serialized_start=2403,
+  serialized_end=2447,
 )
 
 _SIMPLECONNECTREQUEST_CLIENTINFOENTRY.containing_type = _SIMPLECONNECTREQUEST
 _SIMPLECONNECTREQUEST.fields_by_name['client_info'].message_type = _SIMPLECONNECTREQUEST_CLIENTINFOENTRY
+_SIMPLECONNECTOUTPUT.fields_by_name['player_insight_state'].message_type = _PLAYERINSIGHTSTATE
 _PLAYERINSIGHTSTATE_SEGMENTSENTRY.containing_type = _PLAYERINSIGHTSTATE
 _PLAYERINSIGHTSTATE.fields_by_name['segments'].message_type = _PLAYERINSIGHTSTATE_SEGMENTSENTRY
-_SIMPLECONNECTOUTPUT.fields_by_name['player_insight_state'].message_type = _PLAYERINSIGHTSTATE
 _LISTROOMSREQUEST_SEARCHCRITERIAENTRY.containing_type = _LISTROOMSREQUEST
 _LISTROOMSREQUEST.fields_by_name['search_criteria'].message_type = _LISTROOMSREQUEST_SEARCHCRITERIAENTRY
+_LISTROOMSOUTPUT.fields_by_name['rooms'].message_type = _ROOMINFO
 _ROOMINFO_DATAENTRY.containing_type = _ROOMINFO
 _ROOMINFO.fields_by_name['data'].message_type = _ROOMINFO_DATAENTRY
-_LISTROOMSOUTPUT.fields_by_name['rooms'].message_type = _ROOMINFO
 _CREATEJOINROOMREQUEST_ROOMDATAENTRY.containing_type = _CREATEJOINROOMREQUEST
 _CREATEJOINROOMREQUEST_JOINDATAENTRY.containing_type = _CREATEJOINROOMREQUEST
 _CREATEJOINROOMREQUEST.fields_by_name['room_data'].message_type = _CREATEJOINROOMREQUEST_ROOMDATAENTRY
 _CREATEJOINROOMREQUEST.fields_by_name['join_data'].message_type = _CREATEJOINROOMREQUEST_JOINDATAENTRY
 _CREATEJOINROOMOUTPUT.fields_by_name['endpoints'].message_type = _SERVERENDPOINT
-_OBJECTPROPERTY.fields_by_name['value'].message_type = _VALUEOBJECT
-_ARRAYPROPERTY.fields_by_name['value'].message_type = _VALUEOBJECT
-_VALUEOBJECT.fields_by_name['arrayProperties'].message_type = _ARRAYPROPERTY
-_VALUEOBJECT.fields_by_name['objectProperties'].message_type = _OBJECTPROPERTY
-_BIGDBOBJECT.fields_by_name['properties'].message_type = _OBJECTPROPERTY
-_LOADMYPLAYEROBJECTOUTPUT.fields_by_name['playerObject'].message_type = _BIGDBOBJECT
-_LOADOBJECTSARGS.fields_by_name['objectIds'].message_type = _BIGDBOBJECTID
-_LOADOBJECTSOUTPUT.fields_by_name['objects'].message_type = _BIGDBOBJECT
+_LOADMYPLAYEROBJECTOUTPUT.fields_by_name['player_object'].message_type = _BIGDBOBJECTOUTPUT
+_BIGDBOBJECTOUTPUT.fields_by_name['items'].message_type = _BIGDBOBJECTITEM
+_BIGDBOBJECTITEM.fields_by_name['value'].message_type = _BIGDBOBJECTVALUE
+_BIGDBOBJECTVALUE.fields_by_name['array'].message_type = _BIGDBARRAYELEMENT
+_BIGDBOBJECTVALUE.fields_by_name['items'].message_type = _BIGDBOBJECTITEM
+_BIGDBARRAYELEMENT.fields_by_name['value'].message_type = _BIGDBOBJECTVALUE
+_BIGDBLOADREQUEST.fields_by_name['object_ids'].message_type = _BIGDBOBJECTID
+_BIGDBLOADOUTPUT.fields_by_name['objects'].message_type = _BIGDBOBJECTOUTPUT
 DESCRIPTOR.message_types_by_name['SimpleConnectRequest'] = _SIMPLECONNECTREQUEST
-DESCRIPTOR.message_types_by_name['PlayerInsightState'] = _PLAYERINSIGHTSTATE
 DESCRIPTOR.message_types_by_name['SimpleConnectOutput'] = _SIMPLECONNECTOUTPUT
 DESCRIPTOR.message_types_by_name['SimpleConnectError'] = _SIMPLECONNECTERROR
+DESCRIPTOR.message_types_by_name['PlayerInsightState'] = _PLAYERINSIGHTSTATE
 DESCRIPTOR.message_types_by_name['ListRoomsRequest'] = _LISTROOMSREQUEST
-DESCRIPTOR.message_types_by_name['RoomInfo'] = _ROOMINFO
 DESCRIPTOR.message_types_by_name['ListRoomsOutput'] = _LISTROOMSOUTPUT
 DESCRIPTOR.message_types_by_name['ListRoomsError'] = _LISTROOMSERROR
+DESCRIPTOR.message_types_by_name['RoomInfo'] = _ROOMINFO
 DESCRIPTOR.message_types_by_name['CreateJoinRoomRequest'] = _CREATEJOINROOMREQUEST
-DESCRIPTOR.message_types_by_name['ServerEndpoint'] = _SERVERENDPOINT
 DESCRIPTOR.message_types_by_name['CreateJoinRoomOutput'] = _CREATEJOINROOMOUTPUT
 DESCRIPTOR.message_types_by_name['CreateJoinRoomError'] = _CREATEJOINROOMERROR
-DESCRIPTOR.message_types_by_name['ObjectProperty'] = _OBJECTPROPERTY
-DESCRIPTOR.message_types_by_name['ArrayProperty'] = _ARRAYPROPERTY
-DESCRIPTOR.message_types_by_name['ValueObject'] = _VALUEOBJECT
-DESCRIPTOR.message_types_by_name['BigDBObject'] = _BIGDBOBJECT
-DESCRIPTOR.message_types_by_name['BigDBObjectId'] = _BIGDBOBJECTID
+DESCRIPTOR.message_types_by_name['ServerEndpoint'] = _SERVERENDPOINT
 DESCRIPTOR.message_types_by_name['LoadMyPlayerObjectArgs'] = _LOADMYPLAYEROBJECTARGS
-DESCRIPTOR.message_types_by_name['LoadMyPlayerObjectError'] = _LOADMYPLAYEROBJECTERROR
 DESCRIPTOR.message_types_by_name['LoadMyPlayerObjectOutput'] = _LOADMYPLAYEROBJECTOUTPUT
-DESCRIPTOR.message_types_by_name['LoadObjectsArgs'] = _LOADOBJECTSARGS
-DESCRIPTOR.message_types_by_name['LoadObjectsError'] = _LOADOBJECTSERROR
-DESCRIPTOR.message_types_by_name['LoadObjectsOutput'] = _LOADOBJECTSOUTPUT
+DESCRIPTOR.message_types_by_name['LoadMyPlayerObjectError'] = _LOADMYPLAYEROBJECTERROR
+DESCRIPTOR.message_types_by_name['BigDBObjectOutput'] = _BIGDBOBJECTOUTPUT
+DESCRIPTOR.message_types_by_name['BigDBObjectItem'] = _BIGDBOBJECTITEM
+DESCRIPTOR.message_types_by_name['BigDBObjectValue'] = _BIGDBOBJECTVALUE
+DESCRIPTOR.message_types_by_name['BigDBArrayElement'] = _BIGDBARRAYELEMENT
+DESCRIPTOR.message_types_by_name['BigDBLoadRequest'] = _BIGDBLOADREQUEST
+DESCRIPTOR.message_types_by_name['BigDBLoadOutput'] = _BIGDBLOADOUTPUT
+DESCRIPTOR.message_types_by_name['BigDBLoadError'] = _BIGDBLOADERROR
+DESCRIPTOR.message_types_by_name['BigDBObjectId'] = _BIGDBOBJECTID
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 SimpleConnectRequest = _reflection.GeneratedProtocolMessageType('SimpleConnectRequest', (_message.Message,), dict(
@@ -1351,6 +1351,20 @@ SimpleConnectRequest = _reflection.GeneratedProtocolMessageType('SimpleConnectRe
 _sym_db.RegisterMessage(SimpleConnectRequest)
 _sym_db.RegisterMessage(SimpleConnectRequest.ClientInfoEntry)
 
+SimpleConnectOutput = _reflection.GeneratedProtocolMessageType('SimpleConnectOutput', (_message.Message,), dict(
+  DESCRIPTOR = _SIMPLECONNECTOUTPUT,
+  __module__ = 'playerio_pb2'
+  # @@protoc_insertion_point(class_scope:SimpleConnectOutput)
+  ))
+_sym_db.RegisterMessage(SimpleConnectOutput)
+
+SimpleConnectError = _reflection.GeneratedProtocolMessageType('SimpleConnectError', (_message.Message,), dict(
+  DESCRIPTOR = _SIMPLECONNECTERROR,
+  __module__ = 'playerio_pb2'
+  # @@protoc_insertion_point(class_scope:SimpleConnectError)
+  ))
+_sym_db.RegisterMessage(SimpleConnectError)
+
 PlayerInsightState = _reflection.GeneratedProtocolMessageType('PlayerInsightState', (_message.Message,), dict(
 
   SegmentsEntry = _reflection.GeneratedProtocolMessageType('SegmentsEntry', (_message.Message,), dict(
@@ -1365,20 +1379,6 @@ PlayerInsightState = _reflection.GeneratedProtocolMessageType('PlayerInsightStat
   ))
 _sym_db.RegisterMessage(PlayerInsightState)
 _sym_db.RegisterMessage(PlayerInsightState.SegmentsEntry)
-
-SimpleConnectOutput = _reflection.GeneratedProtocolMessageType('SimpleConnectOutput', (_message.Message,), dict(
-  DESCRIPTOR = _SIMPLECONNECTOUTPUT,
-  __module__ = 'playerio_pb2'
-  # @@protoc_insertion_point(class_scope:SimpleConnectOutput)
-  ))
-_sym_db.RegisterMessage(SimpleConnectOutput)
-
-SimpleConnectError = _reflection.GeneratedProtocolMessageType('SimpleConnectError', (_message.Message,), dict(
-  DESCRIPTOR = _SIMPLECONNECTERROR,
-  __module__ = 'playerio_pb2'
-  # @@protoc_insertion_point(class_scope:SimpleConnectError)
-  ))
-_sym_db.RegisterMessage(SimpleConnectError)
 
 ListRoomsRequest = _reflection.GeneratedProtocolMessageType('ListRoomsRequest', (_message.Message,), dict(
 
@@ -1395,6 +1395,20 @@ ListRoomsRequest = _reflection.GeneratedProtocolMessageType('ListRoomsRequest', 
 _sym_db.RegisterMessage(ListRoomsRequest)
 _sym_db.RegisterMessage(ListRoomsRequest.SearchCriteriaEntry)
 
+ListRoomsOutput = _reflection.GeneratedProtocolMessageType('ListRoomsOutput', (_message.Message,), dict(
+  DESCRIPTOR = _LISTROOMSOUTPUT,
+  __module__ = 'playerio_pb2'
+  # @@protoc_insertion_point(class_scope:ListRoomsOutput)
+  ))
+_sym_db.RegisterMessage(ListRoomsOutput)
+
+ListRoomsError = _reflection.GeneratedProtocolMessageType('ListRoomsError', (_message.Message,), dict(
+  DESCRIPTOR = _LISTROOMSERROR,
+  __module__ = 'playerio_pb2'
+  # @@protoc_insertion_point(class_scope:ListRoomsError)
+  ))
+_sym_db.RegisterMessage(ListRoomsError)
+
 RoomInfo = _reflection.GeneratedProtocolMessageType('RoomInfo', (_message.Message,), dict(
 
   DataEntry = _reflection.GeneratedProtocolMessageType('DataEntry', (_message.Message,), dict(
@@ -1409,20 +1423,6 @@ RoomInfo = _reflection.GeneratedProtocolMessageType('RoomInfo', (_message.Messag
   ))
 _sym_db.RegisterMessage(RoomInfo)
 _sym_db.RegisterMessage(RoomInfo.DataEntry)
-
-ListRoomsOutput = _reflection.GeneratedProtocolMessageType('ListRoomsOutput', (_message.Message,), dict(
-  DESCRIPTOR = _LISTROOMSOUTPUT,
-  __module__ = 'playerio_pb2'
-  # @@protoc_insertion_point(class_scope:ListRoomsOutput)
-  ))
-_sym_db.RegisterMessage(ListRoomsOutput)
-
-ListRoomsError = _reflection.GeneratedProtocolMessageType('ListRoomsError', (_message.Message,), dict(
-  DESCRIPTOR = _LISTROOMSERROR,
-  __module__ = 'playerio_pb2'
-  # @@protoc_insertion_point(class_scope:ListRoomsError)
-  ))
-_sym_db.RegisterMessage(ListRoomsError)
 
 CreateJoinRoomRequest = _reflection.GeneratedProtocolMessageType('CreateJoinRoomRequest', (_message.Message,), dict(
 
@@ -1447,13 +1447,6 @@ _sym_db.RegisterMessage(CreateJoinRoomRequest)
 _sym_db.RegisterMessage(CreateJoinRoomRequest.RoomDataEntry)
 _sym_db.RegisterMessage(CreateJoinRoomRequest.JoinDataEntry)
 
-ServerEndpoint = _reflection.GeneratedProtocolMessageType('ServerEndpoint', (_message.Message,), dict(
-  DESCRIPTOR = _SERVERENDPOINT,
-  __module__ = 'playerio_pb2'
-  # @@protoc_insertion_point(class_scope:ServerEndpoint)
-  ))
-_sym_db.RegisterMessage(ServerEndpoint)
-
 CreateJoinRoomOutput = _reflection.GeneratedProtocolMessageType('CreateJoinRoomOutput', (_message.Message,), dict(
   DESCRIPTOR = _CREATEJOINROOMOUTPUT,
   __module__ = 'playerio_pb2'
@@ -1468,40 +1461,12 @@ CreateJoinRoomError = _reflection.GeneratedProtocolMessageType('CreateJoinRoomEr
   ))
 _sym_db.RegisterMessage(CreateJoinRoomError)
 
-ObjectProperty = _reflection.GeneratedProtocolMessageType('ObjectProperty', (_message.Message,), dict(
-  DESCRIPTOR = _OBJECTPROPERTY,
+ServerEndpoint = _reflection.GeneratedProtocolMessageType('ServerEndpoint', (_message.Message,), dict(
+  DESCRIPTOR = _SERVERENDPOINT,
   __module__ = 'playerio_pb2'
-  # @@protoc_insertion_point(class_scope:ObjectProperty)
+  # @@protoc_insertion_point(class_scope:ServerEndpoint)
   ))
-_sym_db.RegisterMessage(ObjectProperty)
-
-ArrayProperty = _reflection.GeneratedProtocolMessageType('ArrayProperty', (_message.Message,), dict(
-  DESCRIPTOR = _ARRAYPROPERTY,
-  __module__ = 'playerio_pb2'
-  # @@protoc_insertion_point(class_scope:ArrayProperty)
-  ))
-_sym_db.RegisterMessage(ArrayProperty)
-
-ValueObject = _reflection.GeneratedProtocolMessageType('ValueObject', (_message.Message,), dict(
-  DESCRIPTOR = _VALUEOBJECT,
-  __module__ = 'playerio_pb2'
-  # @@protoc_insertion_point(class_scope:ValueObject)
-  ))
-_sym_db.RegisterMessage(ValueObject)
-
-BigDBObject = _reflection.GeneratedProtocolMessageType('BigDBObject', (_message.Message,), dict(
-  DESCRIPTOR = _BIGDBOBJECT,
-  __module__ = 'playerio_pb2'
-  # @@protoc_insertion_point(class_scope:BigDBObject)
-  ))
-_sym_db.RegisterMessage(BigDBObject)
-
-BigDBObjectId = _reflection.GeneratedProtocolMessageType('BigDBObjectId', (_message.Message,), dict(
-  DESCRIPTOR = _BIGDBOBJECTID,
-  __module__ = 'playerio_pb2'
-  # @@protoc_insertion_point(class_scope:BigDBObjectId)
-  ))
-_sym_db.RegisterMessage(BigDBObjectId)
+_sym_db.RegisterMessage(ServerEndpoint)
 
 LoadMyPlayerObjectArgs = _reflection.GeneratedProtocolMessageType('LoadMyPlayerObjectArgs', (_message.Message,), dict(
   DESCRIPTOR = _LOADMYPLAYEROBJECTARGS,
@@ -1510,13 +1475,6 @@ LoadMyPlayerObjectArgs = _reflection.GeneratedProtocolMessageType('LoadMyPlayerO
   ))
 _sym_db.RegisterMessage(LoadMyPlayerObjectArgs)
 
-LoadMyPlayerObjectError = _reflection.GeneratedProtocolMessageType('LoadMyPlayerObjectError', (_message.Message,), dict(
-  DESCRIPTOR = _LOADMYPLAYEROBJECTERROR,
-  __module__ = 'playerio_pb2'
-  # @@protoc_insertion_point(class_scope:LoadMyPlayerObjectError)
-  ))
-_sym_db.RegisterMessage(LoadMyPlayerObjectError)
-
 LoadMyPlayerObjectOutput = _reflection.GeneratedProtocolMessageType('LoadMyPlayerObjectOutput', (_message.Message,), dict(
   DESCRIPTOR = _LOADMYPLAYEROBJECTOUTPUT,
   __module__ = 'playerio_pb2'
@@ -1524,26 +1482,68 @@ LoadMyPlayerObjectOutput = _reflection.GeneratedProtocolMessageType('LoadMyPlaye
   ))
 _sym_db.RegisterMessage(LoadMyPlayerObjectOutput)
 
-LoadObjectsArgs = _reflection.GeneratedProtocolMessageType('LoadObjectsArgs', (_message.Message,), dict(
-  DESCRIPTOR = _LOADOBJECTSARGS,
+LoadMyPlayerObjectError = _reflection.GeneratedProtocolMessageType('LoadMyPlayerObjectError', (_message.Message,), dict(
+  DESCRIPTOR = _LOADMYPLAYEROBJECTERROR,
   __module__ = 'playerio_pb2'
-  # @@protoc_insertion_point(class_scope:LoadObjectsArgs)
+  # @@protoc_insertion_point(class_scope:LoadMyPlayerObjectError)
   ))
-_sym_db.RegisterMessage(LoadObjectsArgs)
+_sym_db.RegisterMessage(LoadMyPlayerObjectError)
 
-LoadObjectsError = _reflection.GeneratedProtocolMessageType('LoadObjectsError', (_message.Message,), dict(
-  DESCRIPTOR = _LOADOBJECTSERROR,
+BigDBObjectOutput = _reflection.GeneratedProtocolMessageType('BigDBObjectOutput', (_message.Message,), dict(
+  DESCRIPTOR = _BIGDBOBJECTOUTPUT,
   __module__ = 'playerio_pb2'
-  # @@protoc_insertion_point(class_scope:LoadObjectsError)
+  # @@protoc_insertion_point(class_scope:BigDBObjectOutput)
   ))
-_sym_db.RegisterMessage(LoadObjectsError)
+_sym_db.RegisterMessage(BigDBObjectOutput)
 
-LoadObjectsOutput = _reflection.GeneratedProtocolMessageType('LoadObjectsOutput', (_message.Message,), dict(
-  DESCRIPTOR = _LOADOBJECTSOUTPUT,
+BigDBObjectItem = _reflection.GeneratedProtocolMessageType('BigDBObjectItem', (_message.Message,), dict(
+  DESCRIPTOR = _BIGDBOBJECTITEM,
   __module__ = 'playerio_pb2'
-  # @@protoc_insertion_point(class_scope:LoadObjectsOutput)
+  # @@protoc_insertion_point(class_scope:BigDBObjectItem)
   ))
-_sym_db.RegisterMessage(LoadObjectsOutput)
+_sym_db.RegisterMessage(BigDBObjectItem)
+
+BigDBObjectValue = _reflection.GeneratedProtocolMessageType('BigDBObjectValue', (_message.Message,), dict(
+  DESCRIPTOR = _BIGDBOBJECTVALUE,
+  __module__ = 'playerio_pb2'
+  # @@protoc_insertion_point(class_scope:BigDBObjectValue)
+  ))
+_sym_db.RegisterMessage(BigDBObjectValue)
+
+BigDBArrayElement = _reflection.GeneratedProtocolMessageType('BigDBArrayElement', (_message.Message,), dict(
+  DESCRIPTOR = _BIGDBARRAYELEMENT,
+  __module__ = 'playerio_pb2'
+  # @@protoc_insertion_point(class_scope:BigDBArrayElement)
+  ))
+_sym_db.RegisterMessage(BigDBArrayElement)
+
+BigDBLoadRequest = _reflection.GeneratedProtocolMessageType('BigDBLoadRequest', (_message.Message,), dict(
+  DESCRIPTOR = _BIGDBLOADREQUEST,
+  __module__ = 'playerio_pb2'
+  # @@protoc_insertion_point(class_scope:BigDBLoadRequest)
+  ))
+_sym_db.RegisterMessage(BigDBLoadRequest)
+
+BigDBLoadOutput = _reflection.GeneratedProtocolMessageType('BigDBLoadOutput', (_message.Message,), dict(
+  DESCRIPTOR = _BIGDBLOADOUTPUT,
+  __module__ = 'playerio_pb2'
+  # @@protoc_insertion_point(class_scope:BigDBLoadOutput)
+  ))
+_sym_db.RegisterMessage(BigDBLoadOutput)
+
+BigDBLoadError = _reflection.GeneratedProtocolMessageType('BigDBLoadError', (_message.Message,), dict(
+  DESCRIPTOR = _BIGDBLOADERROR,
+  __module__ = 'playerio_pb2'
+  # @@protoc_insertion_point(class_scope:BigDBLoadError)
+  ))
+_sym_db.RegisterMessage(BigDBLoadError)
+
+BigDBObjectId = _reflection.GeneratedProtocolMessageType('BigDBObjectId', (_message.Message,), dict(
+  DESCRIPTOR = _BIGDBOBJECTID,
+  __module__ = 'playerio_pb2'
+  # @@protoc_insertion_point(class_scope:BigDBObjectId)
+  ))
+_sym_db.RegisterMessage(BigDBObjectId)
 
 
 _SIMPLECONNECTREQUEST_CLIENTINFOENTRY.has_options = True
