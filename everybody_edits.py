@@ -11,10 +11,10 @@ version = client.bigdb_load('config', 'config')['version']
 players_online = 0
 
 for room in client.list_rooms(f'Everybodyedits{version}'):
-    print('{} - {} players online'.format(room.data['name'], room.players_online))
+    print(f"{room.data['name']} - {room.players_online} players online")
     players_online += room.players_online
 
-print('Total: {} users\n'.format(players_online))
+print(f'Total: {players_online} users\n')
 
 # Join a room
 room = client.create_join_room('PWL17t1R6bbUI', f'Everybodyedits{version}', True)
@@ -37,7 +37,7 @@ def on_init(room, message):
 def on_add(room, message):
     import time
     time.sleep(1)
-    room.send('say', 'Hi {}!'.format(message[1].title()))
+    room.send('say', f'Hi {message[1].title()}!')
 
 # Handle disconnection
 @EventHandler.add('playerio.disconnect')
