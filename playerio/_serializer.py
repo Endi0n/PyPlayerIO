@@ -51,7 +51,7 @@ class Serializer:
                 return bytes([Serializer.PATTERNS['short_string'] | len(encoded_value)]) + encoded_value
             return Serializer.__get_header(Serializer.PATTERNS['string'], len(encoded_value)) + encoded_value
 
-        raise NotImplementedError('Value type {} is not implemented yet'.format(value_type))
+        raise NotImplementedError(f'Value type {value_type} is not implemented yet')
 
     @staticmethod
     def __get_header(value_type, value):

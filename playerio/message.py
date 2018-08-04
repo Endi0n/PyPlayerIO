@@ -11,7 +11,7 @@ class Message:
         return self.__args[item]
 
     def __str__(self):
-        return '{} - {}'.format(self.__type, self.__args)
+        return f'{self.__type} - {self.__args}'
 
     @property
     def type(self):

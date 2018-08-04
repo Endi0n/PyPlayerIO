@@ -4,4 +4,4 @@ class PlayerIOError(Exception):
         self.__error = error
 
     def __str__(self):
-        return 'Code {}, {}'.format(self.__error.code, self.__error.message)
+        return f'Code {self.__error.code}, {self.__error.message}'

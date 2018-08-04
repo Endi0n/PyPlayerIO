@@ -14,7 +14,7 @@ class HTTPChannel:
         headers = {}
         if self.token:
             headers['playertoken'] = self.token
-        request = urllib.request.Request('http://api.playerio.com/api/{}'.format(method), input_message, headers)
+        request = urllib.request.Request(f'http://api.playerio.com/api/{method}', input_message, headers)
 
         # Reading the response
         response = urllib.request.build_opener().open(request)

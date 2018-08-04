@@ -56,7 +56,7 @@ class Deserializer:
                     self.__value_type = pattern
                     break
             if self.__value_type is None:
-                raise ValueError('Unknown value type for {}'.format(byte))
+                raise ValueError(f'Unknown value type for {byte}')
 
             if self.__value_type == Serializer.PATTERNS['false']:
                 self.__add_value(False)
