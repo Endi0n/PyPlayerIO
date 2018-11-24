@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class BigDBObject:
 
 	def __init__(self):
@@ -8,18 +10,29 @@ class BigDBObject:
 		items = {}
 
 		for item in obj_items:
-			_, value_type = item.value.ListFields()[0]
+			item_fields = item.value.ListFields()
 
-			# Sometimes basic types the value type is omitted, reason unknown
-			if type(value_type) is not int:
-				value_type = -1
+			# Extract the value
+			value = None
+			if item.value.type == 0 or len(item_fields) == 2: 
+				value = item_fields[-1][1]
+			elif 1 <= item.value.type <= 3:
+				value = 0
+			elif item.value.type == 4:
+				value = False
+			elif 5 <= item.value.type <= 6:
+				value = 0.0
 
-			_, value = item.value.ListFields()[-1]
+			# Convert to python datetime
+			if item.value.type == 8 and value:
+				value = datetime.fromtimestamp(value / 1000)
 
 			# Resolve recursively BigDBArray(type=9) and BigDBObject(type=10)
-			if 9 <= value_type:
+			if 9 <= item.value.type:
 				value = BigDBObject.parse(value)
 			
-			items[item.name] = value
+			# Some fields don't have a name(?)
+			if hasattr(item, 'name'):
+				items[item.name] = value
 	
 		return items
