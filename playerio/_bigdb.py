@@ -9,7 +9,7 @@ class BigDBObject:
 	def parse(obj_items):
 		items = {}
 
-		for item in obj_items:
+		for item in obj_items or []:
 			item_fields = item.value.ListFields()
 
 			# Extract the value
