@@ -1,5 +1,5 @@
 from io import BytesIO
-
+import struct
 
 class Serializer:
 
@@ -44,6 +44,9 @@ class Serializer:
             if 0 <= value < 64:
                 return bytes([Serializer.PATTERNS['unsigned_short_int'] | value])
             return Serializer.__get_header(Serializer.PATTERNS['int'], value)
+
+        if value_type == float:
+            return bytes([Serializer.PATTERNS['double']]) + bytes(struct.pack(">d", value))
 
         if value_type == str:
             encoded_value = value.encode()
