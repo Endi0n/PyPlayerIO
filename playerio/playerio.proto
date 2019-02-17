@@ -1,5 +1,5 @@
 // PlayerIO Protocol Buffers
-// protoc --python_out=./ playerio.proto && mv playerio_pb2.py _protocol.py 
+// protoc --python_out=./ playerio.proto && mv playerio_pb2.py _protocol_pb2.py 
 
 syntax = "proto3";
 

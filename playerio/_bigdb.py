@@ -14,7 +14,7 @@ class BigDBObject:
 
 			# Extract the value
 			value = None
-			if item.value.type == 0 or len(item_fields) == 2: 
+			if len(item_fields) > 0 and (item.value.type == 0 or len(item_fields) == 2):
 				value = item_fields[-1][1]
 			elif 1 <= item.value.type <= 3:
 				value = 0
@@ -34,5 +34,5 @@ class BigDBObject:
 			# Some fields don't have a name(?)
 			if hasattr(item, 'name'):
 				items[item.name] = value
-	
+
 		return items

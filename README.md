@@ -9,7 +9,7 @@ A Python PlayerIOClient Implementation
 Download this repository and install protobuf with pip:
 
 ```
-pip3 install protobuf
+pip3 install "protobuf>=3.4.0,<3.7"
 ```
 
 
