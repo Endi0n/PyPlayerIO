@@ -70,13 +70,18 @@ class Client:
         # Initializing the room
         return Room(output_message)
     
-    def bigdb_load(self, table, key):
+    def bigdb_load(self, table, keys):
         # Initializing BigDB load parameters
         input_message = BigDBLoadRequest()
-        obj_id = BigDBObjectId()
-        obj_id.table = table
-        obj_id.keys.extend([key])
-        input_message.object_ids.extend([obj_id])
+
+        if not isinstance(keys, list):
+            keys = [keys]
+
+        for key in keys:
+            obj_id = BigDBObjectId()
+            obj_id.table = table
+            obj_id.key = key
+            input_message.objects_ids.extend([obj_id])
 
         # Initializing request types
         output_message = BigDBLoadOutput()
@@ -85,8 +90,12 @@ class Client:
         # Sending the request
         self.__channel.request(85, input_message, output_message, error_message)
 
-        # Returning the object assuming there's only one object with the specified key
-        return BigDBObject.parse(output_message.objects[0].items)
+        if len(output_message.objects) == 0: # No object found with the specified key
+            return None 
+        elif len(output_message.objects) == 1: # Return a single object
+            return BigDBObject.parse(output_message.objects[0].items)
+        else: # Return an array of objects
+            return [BigDBObject.parse(bigdb_obj.items) for bigdb_obj in output_message.objects] 
 
     @property
     def user_id(self):
