@@ -1,12 +1,22 @@
 from datetime import datetime
 
-class BigDBObject:
+class BigDBObject(dict):
 
-	def __init__(self):
-		raise NotImplementedError('BigDBObject is currently a static class!')
+	def __init__(self, table, bigdb_obj):
+		self.__table = table
+		self.__key = bigdb_obj.key
+		self.update(BigDBObject.__parse(bigdb_obj.items))
+
+	@property
+	def table(self):
+		return self.__table
+	
+	@property
+	def key(self):
+		return self.__key
 
 	@staticmethod
-	def parse(obj_items):
+	def __parse(obj_items):
 		items = {}
 
 		for item in obj_items or []:
@@ -29,7 +39,7 @@ class BigDBObject:
 
 			# Resolve recursively BigDBArray(type=9) and BigDBObject(type=10)
 			if 9 <= item.value.type:
-				value = BigDBObject.parse(value)
+				value = BigDBObject.__parse(value)
 			
 			# Some fields don't have a name(?)
 			if hasattr(item, 'name'):

@@ -1,6 +1,6 @@
 from .room import Room
 from ._http_channel import HTTPChannel
-from ._bigdb import BigDBObject
+from .bigdb import BigDBObject
 from ._protocol_pb2 import *
 
 class Client:
@@ -33,7 +33,7 @@ class Client:
         error_message = LoadMyPlayerObjectError()
 
         self.__channel.request(103, input_message, output_message, error_message)
-        self.__player_object = BigDBObject.parse(output_message.player_object.items)
+        self.__player_object = BigDBObject('PlayerObjects', output_message.player_object)
 
     def list_rooms(self, room_type, limit=0):
         # Initializing room-list parameters
@@ -74,7 +74,9 @@ class Client:
         # Initializing BigDB load parameters
         input_message = BigDBLoadRequest()
 
+        single_obj = False
         if not isinstance(keys, list):
+            single_obj = True
             keys = [keys]
 
         for key in keys:
@@ -92,10 +94,10 @@ class Client:
 
         if len(output_message.objects) == 0: # No object found with the specified key
             return None 
-        elif len(output_message.objects) == 1: # Return a single object
-            return BigDBObject.parse(output_message.objects[0].items)
+        elif len(output_message.objects) == 1 and single_obj: # Return a single object
+            return BigDBObject(table, output_message.objects[0])
         else: # Return an array of objects
-            return [BigDBObject.parse(bigdb_obj.items) for bigdb_obj in output_message.objects] 
+            return [BigDBObject(table, bigdb_obj) for bigdb_obj in output_message.objects] 
 
     @property
     def user_id(self):
