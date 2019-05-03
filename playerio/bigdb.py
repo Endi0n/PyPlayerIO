@@ -16,8 +16,8 @@ class BigDBObject(dict):
 		return self.__key
 
 	@staticmethod
-	def __parse(obj_items):
-		items = {}
+	def __parse(obj_items, parent_type=10):
+		items = [] if parent_type == 9 else {}
 
 		for item in obj_items or []:
 			item_fields = item.value.ListFields()
@@ -39,10 +39,11 @@ class BigDBObject(dict):
 
 			# Resolve recursively BigDBArray(type=9) and BigDBObject(type=10)
 			if 9 <= item.value.type:
-				value = BigDBObject.__parse(value)
+				value = BigDBObject.__parse(value, item.value.type)
 			
-			# Some fields don't have a name(?)
 			if hasattr(item, 'name'):
 				items[item.name] = value
+			else:
+				items.append(value)
 
 		return items
